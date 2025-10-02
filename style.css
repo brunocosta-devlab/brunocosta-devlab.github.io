@@ -25,6 +25,10 @@ body {
     color: var(--light-color);
     width: 100vw;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Mobile First */
@@ -95,7 +99,6 @@ main p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .project-cards {
@@ -103,8 +106,8 @@ main p {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    justify-self: center;
-    align-self: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .projects h2 {
@@ -113,6 +116,7 @@ main p {
 }
 
 .card {
+    aspect-ratio: 3/2;
     width: 300px;
     height: auto;
     border: 1px solid var(--transparent);
@@ -197,32 +201,98 @@ footer {
 }
 
 @media screen and (min-width: 738px) {
-    header {
-        display: block;
-        position: fixed;
-        top: 0;
-        background-color: var(--transparent);
+    body{
         width: 100vw;
-        z-index: 10;
-    }
-
-    .header-menu {
-        list-style: none;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
-        gap: 2.5rem;
-        padding: 0.5rem 0;
+        align-items: center;
     }
 
-    .header-menu li a {
-        text-decoration: none;
-        color: var(--white);
-        font-weight: 700;
+    main{
+        width: 30vw;
+        height: 70vh;
+        position: absolute;
+        left: 0;
+    }
+
+    .about, .projects{
+        width: 75vw;
+        min-height: 90vh;
+        position: absolute;
+        right: 0;
+        padding: 5rem;
+    }
+
+    h2{
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p{
+        font-size: 1.25rem;
+        letter-spacing: 0.2ch;
+    }
+
+    .project-cards{
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card{
+        width: fit-content;
+        cursor: pointer;
         transition: 0.2s ease;
     }
 
-    .header-menu li a:hover {
-        text-shadow: 0px 2px 4px var(--secondary-color);
+    .card:hover{
+        transform: translate(0, -5px) scale(1.05);
+        box-shadow: 0px 0px 1px 1px var(--secondary-color);
         transition: 0.2s ease;
+    }
+
+    .card img{
+        width: 250px;
+    }
+
+    .contact{
+        position: absolute;
+        top: 0;
+    }
+
+    .contact h2{
+        display: none;
+    }
+
+    .contacts-links{
+        width: 100vw;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contacts-links a{
+        transition: 0.2s ease;
+    }
+
+    .contacts-links a:hover{
+        transition: 0.2s ease;
+        transform: translate(0px, -5px) scale(1.25);
+    }
+
+    .off{
+        display: none;
+    }
+
+    footer{
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+    }
+
+    footer p{
+        font-size: 1rem;
+        font-weight: 200;
     }
 }
